@@ -1,15 +1,14 @@
 import Link from 'next/link'
-import useSWR from 'swr'
-import axios from 'axios'
 
-const fetcher = url => axios.get(url).then(res => res.data)
+import useTodos from '../../hooks/todos'
 
 export default function SWRIndex() {
-  const { data } = useSWR('https://fswdi-api-todos.herokuapp.com/api/todos', fetcher)
+  const { todos, isLoading, isError, errorMessage } = useTodos()
 
-  if (data === undefined) return <div>loading</div>
-
-  return data.todos.map((todo) => (
+  if (isLoading) return <div>loading</div>
+  if (isError) return <div>{errorMessage}</div>
+  if (todos.length === 0) return <div>No Todos</div>
+  return todos.map((todo) => (
     <div key={todo.id}>
       <Link href={`/swr/${todo.id}`}>
         <a>{todo.title}</a>
