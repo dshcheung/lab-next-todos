@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import useTodo from '../../hooks/todo'
+import useTodo from '@/hooks/todo'
 
 export default function SSGShow() {
   const { query: { id } } = useRouter()
@@ -14,7 +14,9 @@ export default function SSGShow() {
         {
           todo.TodoItems.map((item) => (
             <li key={item.id}>
-              {item.checked ? 'O' : 'X'} {item.name}
+              {item.checked ? 'O' : 'X'}
+              {' '}
+              {item.name}
             </li>
           ))
         }

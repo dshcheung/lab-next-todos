@@ -2,7 +2,7 @@ import useSWR from 'swr'
 import axios from 'axios'
 import produce from 'immer'
 
-const fetcher = url => axios.get(url).then(res => res.data)
+const fetcher = (url) => axios.get(url).then((res) => res.data)
 
 export default function useTodos() {
   const { data, error, mutate } = useSWR('https://fswdi-api-todos.herokuapp.com/api/todos', fetcher)

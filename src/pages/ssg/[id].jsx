@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 
-import { apiGetTodosIds, apiGetTodo } from '../../lib/todos'
+import { apiGetTodosIds, apiGetTodo } from '@/lib/todos'
 
 export default function SSGShow({ todo }) {
   const router = useRouter()

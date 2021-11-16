@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import useTodos from '../../hooks/todos'
+import useTodos from '@/hooks/todos'
 
 export default function SWRIndex() {
   const { todos, isLoading, isError, errorMessage, createTodo } = useTodos()
@@ -10,7 +10,10 @@ export default function SWRIndex() {
   // if (todos.length === 0) return <div>No Todos</div>
   return (
     <div>
-      <button onClick={() => createTodo({ title: 'hi' })}>New Todo</button>
+      <button
+        type="button"
+        onClick={() => createTodo({ title: 'hi' })}
+      >New Todo</button>
       {
         todos.map((todo) => (
           <div key={todo.id}>

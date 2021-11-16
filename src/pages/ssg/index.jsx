@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { apiGetTodos } from '../../lib/todos'
+import { apiGetTodos } from '@/lib/todos'
 
 export default function SSGIndex({ todos }) {
   return todos.map((todo) => (
