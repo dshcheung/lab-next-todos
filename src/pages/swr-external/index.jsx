@@ -2,14 +2,14 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
 
-import useTodos from '@/hooks/todos'
+import useTodos from '@/hooks/external/todos'
 
 import Layout from '@/components/layouts/Layout'
 import CompsLoading from '@/components/loading'
 import CompsError from '@/components/error'
 import CompsModalsTodosCreate from '@/components/modals/todos/create'
 
-export default function SWRIndex() {
+export default function SWRExternalIndex() {
   const [openTodosCreate, setTodosCreate] = useState(false)
 
   const { todos, isLoading, isError, errorMessage, createTodo } = useTodos()
@@ -37,7 +37,7 @@ export default function SWRIndex() {
           {
             todos.map((todo) => (
               <div key={todo.id}>
-                <Link href={`/swr/${todo.id}`}>
+                <Link href={`/swr-external/${todo.id}`}>
                   <a>{todo.title}</a>
                 </Link>
               </div>

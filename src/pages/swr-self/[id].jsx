@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { SWRConfig } from 'swr'
 
-import useTodo from '@/hooks/todo'
+import useTodo from '@/hooks/self/todo'
 
 import { apiGetTodo } from '@/lib/todo'
 
@@ -14,7 +14,7 @@ import CompsModalsTodosUpdate from '@/components/modals/todos/update'
 import CompsModalsTodoItemsCreate from '@/components/modals/todo-items/create'
 import CompsModalsTodoItemsUpdate from '@/components/modals/todo-items/update'
 
-export function RenderSWRShow() {
+export function RenderSWRSelfShow() {
   const [openTodosUpdate, setOpenTodosUpdate] = useState(false)
   const [openTodoItemsCreate, setOpenTodoItemsCreate] = useState(false)
   const [openTodoItemsUpdate, setOpenTodoItemsUpdate] = useState(false)
@@ -149,7 +149,7 @@ export function RenderSWRShow() {
 export default function SWRShow({ fallback }) {
   return (
     <SWRConfig value={{ fallback }}>
-      <RenderSWRShow />
+      <RenderSWRSelfShow />
     </SWRConfig>
   )
 }

@@ -8,7 +8,11 @@ export default function Home() {
       </div>
 
       <div>
-        <Link href="/swr"><a>SWR</a></Link>
+        <Link href="/swr-external"><a>SWR External</a></Link>
+      </div>
+
+      <div>
+        <Link href="/swr-self"><a>SWR Self</a></Link>
       </div>
     </div>
   )

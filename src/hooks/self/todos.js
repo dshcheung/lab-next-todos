@@ -15,7 +15,7 @@ export default function useTodos() {
       data: values
     }).then((resp) => {
       resolve()
-      router.push(`/swr/${resp.data.todo.id}`)
+      router.push(`/swr-self/${resp.data.todo.id}`)
     }).catch(() => {
       reject()
     })

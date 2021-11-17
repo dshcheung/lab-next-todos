@@ -12,7 +12,8 @@ export default function CompsLayoutsNavbar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} href="/ssg"><a className="nav-link">SSG</a></Nav.Link>
-            <Nav.Link as={Link} href="/swr"><a className="nav-link">SWR</a></Nav.Link>
+            <Nav.Link as={Link} href="/swr-external"><a className="nav-link">SWR External</a></Nav.Link>
+            <Nav.Link as={Link} href="/swr-self"><a className="nav-link">SWR Self</a></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

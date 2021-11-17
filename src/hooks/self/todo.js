@@ -30,7 +30,7 @@ export default function useTodo(id) {
       method: 'DELETE',
       url: `https://fswdi-api-todos.herokuapp.com/api/todos/${id}`
     }).then(() => {
-      router.push('/swr')
+      router.push('/swr-self')
     })
   }
 
