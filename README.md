@@ -19,6 +19,7 @@
     - Create
     - Update
     - Destroy
+  - Todo Show Page should also have `getStaticPaths` & `getStaticProps`
 
 ## Bonus
 - Create an API Using Next and connect to the `swr-self` pages
