@@ -19,3 +19,4 @@
 ## Bonus
 - Todo (`/swr/:id`) | Add Update (Button & Modal & Form), Delete (Button)
 - TodoItems (`/swr/:id`) | Add Create (Button & Modal & Form), Update (Button & Modal & Form), Delete (Button), Toggle Checked (Button)
+- Add SEO Support for all `swr` pages
