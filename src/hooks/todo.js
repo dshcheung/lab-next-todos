@@ -8,15 +8,18 @@ export default function useTodo(id) {
   const router = useRouter()
   const { data, error, mutate } = useSWR(id ? `https://fswdi-api-todos.herokuapp.com/api/todos/${id}` : null, fetcher)
 
-  const updateTodo = (values) => {
+  const updateTodo = (values) => (new Promise((resolve, reject) => {
     axios({
       method: 'PUT',
       url: `https://fswdi-api-todos.herokuapp.com/api/todos/${id}`,
       data: values
     }).then(() => {
+      resolve()
       mutate()
+    }).catch(() => {
+      reject()
     })
-  }
+  }))
 
   const destroyTodo = () => {
     axios({
