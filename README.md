@@ -6,17 +6,24 @@
 
 # Start Code
 - Clone Repo
-- Create a branch `[your-initials]-solution`
+- Create a branch `[your-initials]-nc-solution`
 - Run `$ npm install`
 - Run `$ npm run dev`
 
 # Requirements
-> Note - You will need to refer to https://github.com/dented-academy/api-todos for the API Doc
-
 ## Solution
-- Todo (`/swr/:id`) | Add Update (Button), Delete (Button)
+- Create an API Using Next and connect to the `swr-self` pages
+  - Todo Controllers & Helpers (If Needed)
+    - Index
+    - Show
+    - Create
+    - Update
+    - Destroy
 
 ## Bonus
-- Todo (`/swr/:id`) | Add Update (Button & Modal & Form), Delete (Button)
-- TodoItems (`/swr/:id`) | Add Create (Button & Modal & Form), Update (Button & Modal & Form), Delete (Button), Toggle Checked (Button)
-- Add SEO Support for all `swr` pages
+- Create an API Using Next and connect to the `swr-self` pages
+  - TodoItem Model & Migration
+  - TodoItems Controllers & Helpers (If Needed)
+    - Create
+    - Update
+    - Destroy
