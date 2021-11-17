@@ -2,6 +2,7 @@
 - [Start Code](#start-code)
 - [Requirements](#requirements)
   - [Solution](#solution)
+  - [Bonus](#bonus)
 
 # Start Code
 - Clone Repo
@@ -10,15 +11,11 @@
 - Run `$ npm run dev`
 
 # Requirements
-Create a basic Todos Index and Show Page
-
 > Note - You will need to refer to https://github.com/dented-academy/api-todos for the API Doc
 
 ## Solution
-You should have:
-- SSG
-  - `pages/ssg/index.js`
-  - `pages/ssg/[id].js`
-- SWR
-  - `pages/swr/index.js`
-  - `pages/swr/[id].js`
+- Todo (`/swr/:id`) | Add Update (Button), Delete (Button)
+
+## Bonus
+- Todo (`/swr/:id`) | Add Update (Button & Modal & Form), Delete (Button)
+- TodoItems (`/swr/:id`) | Add Create (Button & Modal & Form), Update (Button & Modal & Form), Delete (Button), Toggle Checked (Button)
