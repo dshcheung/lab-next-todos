@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
+import Head from 'next/head'
 
 import useTodos from '@/hooks/todos'
 
@@ -17,6 +18,9 @@ export default function SWRIndex() {
   if (isError) return <CompsError message={errorMessage} />
   return (
     <Layout>
+      <Head>
+        <title>SWR Todos Index</title>
+      </Head>
       <div className="container my-3">
         <header className="text-center mb-3">
           <h1>Todos Index</h1>
