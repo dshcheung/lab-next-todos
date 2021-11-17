@@ -1,28 +1,25 @@
 import useSWR from 'swr'
 import axios from 'axios'
-import produce from 'immer'
+import { useRouter } from 'next/router'
 
 const fetcher = (url) => axios.get(url).then((res) => res.data)
 
 export default function useTodos() {
-  const { data, error, mutate } = useSWR('https://fswdi-api-todos.herokuapp.com/api/todos', fetcher)
+  const router = useRouter()
+  const { data, error } = useSWR('https://fswdi-api-todos.herokuapp.com/api/todos', fetcher)
 
-  const createTodo = (values) => {
+  const createTodo = (values) => (new Promise((resolve, reject) => {
     axios({
       method: 'POST',
       url: 'https://fswdi-api-todos.herokuapp.com/api/todos',
       data: values
     }).then((resp) => {
-      // Tell SWR to refresh the data directly
-      // mutate()
-
-      // Tell SWR to update with the response data and then
-      // revalidate the data with a get request
-      mutate(produce(data, (draft) => {
-        draft.todos.push(resp.data.todo)
-      }))
+      resolve()
+      router.push(`/swr/${resp.data.todo.id}`)
+    }).catch(() => {
+      reject()
     })
-  }
+  }))
 
   return {
     meta: data?.meta,
