@@ -37,7 +37,7 @@ export default function useTodo(id) {
   const createTodoItem = (values) => (new Promise((resolve, reject) => {
     axios({
       method: 'POST',
-      url: `https://fswdi-api-todos.herokuapp.com/api/todos/${id}/todo-items`,
+      url: `/api/todos/${id}/todo-items`,
       data: values
     }).then((resp) => {
       resolve()
@@ -55,7 +55,7 @@ export default function useTodo(id) {
     }))
     axios({
       method: 'PUT',
-      url: `https://fswdi-api-todos.herokuapp.com/api/todos/${id}/todo-items/${values.id}`,
+      url: `/api/todos/${id}/todo-items/${values.id}`,
       data: values
     }).then((resp) => {
       resolve()
@@ -79,7 +79,7 @@ export default function useTodo(id) {
     }))
     axios({
       method: 'DELETE',
-      url: `https://fswdi-api-todos.herokuapp.com/api/todos/${id}/todo-items/${values.id}`
+      url: `/api/todos/${id}/todo-items/${values.id}`
     }).then(() => {
       resolve()
       mutate(produce(data, (draft) => {

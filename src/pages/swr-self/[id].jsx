@@ -64,7 +64,7 @@ export function RenderSWRSelfShow() {
           <section>
             <ul className="list-group">
               {
-                todo?.TodoItems?.map((item) => (
+                todo.TodoItems.map((item) => (
                   <li key={item.id} className="list-group-item">
                     <span className={item.checked ? 'text-danger' : ''}>{item.name}</span>
                     {' '}
@@ -162,7 +162,12 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const todo = await Todo.findByPk(Number(params.id))
+  const todo = await Todo.findOne({
+    where: {
+      id: Number(params.id) || 0
+    },
+    include: Todo.TodoItems
+  })
 
   if (!todo) {
     return {
