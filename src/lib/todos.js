@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+/* eslint-disable */
 export async function apiGetTodos() {
   try {
     const { data: { todos } } = await axios({
@@ -42,3 +43,4 @@ export async function apiGetTodo(id) {
     throw err
   }
 }
+/* eslint-enable */

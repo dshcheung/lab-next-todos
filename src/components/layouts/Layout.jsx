@@ -4,6 +4,7 @@ export default function Layout({ children }) {
   return (
     <div id="layout">
       <CompsLayoutsNavbar />
+
       {children}
     </div>
   )

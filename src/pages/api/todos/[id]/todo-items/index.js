@@ -1,6 +1,6 @@
 import nc from 'next-connect'
 
-import getCurrentTodo from '@/api/helper/getCurrentTodo'
+import getCurrentTodo from '@/api/helpers/getCurrentTodo'
 
 import todoTodoItemsCreate from '@/api/controllers/todos/todo-items/create'
 
