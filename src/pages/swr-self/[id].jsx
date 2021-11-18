@@ -3,9 +3,9 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { SWRConfig } from 'swr'
 
-import useTodo from '@/hooks/self/todo'
+import { Todo } from '@/db/models'
 
-import { apiGetTodo } from '@/lib/todo'
+import useTodo from '@/hooks/self/todo'
 
 import Layout from '@/components/layouts/Layout'
 import CompsLoading from '@/components/loading'
@@ -64,7 +64,7 @@ export function RenderSWRSelfShow() {
           <section>
             <ul className="list-group">
               {
-                todo.TodoItems.map((item) => (
+                todo?.TodoItems?.map((item) => (
                   <li key={item.id} className="list-group-item">
                     <span className={item.checked ? 'text-danger' : ''}>{item.name}</span>
                     {' '}
@@ -154,7 +154,7 @@ export default function SWRShow({ fallback }) {
   )
 }
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
   return {
     paths: [],
     fallback: 'blocking'
@@ -162,12 +162,18 @@ export function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const resp = await apiGetTodo(params.id)
+  const todo = await Todo.findByPk(Number(params.id))
+
+  if (!todo) {
+    return {
+      notFound: true
+    }
+  }
 
   return {
     props: {
       fallback: {
-        [`https://fswdi-api-todos.herokuapp.com/api/todos/${params.id}`]: resp.data
+        [`/api/todos/${params.id}`]: { todo: todo.toJSON() }
       }
     }
   }

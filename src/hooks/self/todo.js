@@ -8,14 +8,14 @@ const fetcher = (url) => axios.get(url).then((res) => res.data)
 
 export default function useTodo(id) {
   const router = useRouter()
-  const url = id ? `https://fswdi-api-todos.herokuapp.com/api/todos/${id}` : null
+  const url = id ? `/api/todos/${id}` : null
   const { data, error, mutate } = useSWR(url, fetcher)
   const [todoItemsIds, setTodoItemsIds] = useState([])
 
   const updateTodo = (values) => (new Promise((resolve, reject) => {
     axios({
       method: 'PUT',
-      url: `https://fswdi-api-todos.herokuapp.com/api/todos/${id}`,
+      url: `/api/todos/${id}`,
       data: values
     }).then((resp) => {
       resolve()
@@ -28,7 +28,7 @@ export default function useTodo(id) {
   const destroyTodo = () => {
     axios({
       method: 'DELETE',
-      url: `https://fswdi-api-todos.herokuapp.com/api/todos/${id}`
+      url: `/api/todos/${id}`
     }).then(() => {
       router.push('/swr-self')
     })

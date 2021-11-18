@@ -6,12 +6,12 @@ const fetcher = (url) => axios.get(url).then((res) => res.data)
 
 export default function useTodos() {
   const router = useRouter()
-  const { data, error } = useSWR('https://fswdi-api-todos.herokuapp.com/api/todos', fetcher)
+  const { data, error } = useSWR('/api/todos', fetcher)
 
   const createTodo = (values) => (new Promise((resolve, reject) => {
     axios({
       method: 'POST',
-      url: 'https://fswdi-api-todos.herokuapp.com/api/todos',
+      url: '/api/todos',
       data: values
     }).then((resp) => {
       resolve()
